@@ -1,4 +1,4 @@
-module.exports = function toReadable (number) {
+function toReadable(number){
   let numberStr = String(number);
   const digits={
     0: 'zero', 10: 'ten',
@@ -9,13 +9,13 @@ module.exports = function toReadable (number) {
     5: 'five', 15: 'fifteen',
     6: 'six', 16: 'sixteen',
     7: 'seven', 17: 'seventeen',
-    8: 'eight', 18: 'eighteen',
+    8: 'eigth', 18: 'eighteen',
     9: 'nine',  19: 'nineteen'
   };
   const dozens={
     2: 'twenty', 
     3: 'thirty',
-    4: 'forty',
+    4: 'fourty',
     5: 'fifty',
     6: 'sixty',
     7: 'seventy',
@@ -34,11 +34,16 @@ if(number<20) {
   } else if (numberStr[1]+numberStr[2] <20) {
     res = `${digits[numberStr[0]]} hundred ${numberStr[1]==='0' ? digits[numberStr[2]] : digits[numberStr[1]+numberStr[2]]}`;
   } else {
-    res = `${digits[numberStr[0]]} hundred ${dozens[numberStr[1]]} ${numberStr[2]==='0'? '' : digits[numberStr[2]]}`;
+    res = `${digits[numberStr[0]]} hundred ${dozens[numberStr[1]]} ${digits[numberStr[2]]}`
   }
-  return res.trim();
+  return res;
 
 }
 
   
-};
+
+  
+  
+}
+
+  console.log(toReadable('954'));
